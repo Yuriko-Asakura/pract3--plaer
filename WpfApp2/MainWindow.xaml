@@ -1,0 +1,74 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Player" Height="450" Width="800" Closed="Window_Closed">
+    <Grid x:Name="grid">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF76439"/>
+                <GradientStop Color="#FFB7F1FF" Offset="1"/>
+                <GradientStop Color="#FFEEA4FF" Offset="0.512"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="323*"/>
+            <RowDefinition Height="96*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="76*"/>
+            <ColumnDefinition Width="189*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="ButtonPrevious" Margin="16,15,12,31" Source="/previous.png" Stretch="Fill" MouseDown="ButtonPrevious_MouseDown" Grid.Column="3" RenderTransformOrigin="2.418,0.684" Grid.Row="1"/>
+        <Image x:Name="ButtonNext" Margin="8,15,16,31" Source="/next.png" Stretch="Fill" MouseDown="ButtonNext_MouseDown" Grid.Column="5" Grid.Row="1"/>
+        <Image x:Name="ButtonPause" Margin="10,10,14,35" Source="/pause.png" Stretch="Fill" MouseDown="ButtonPause_MouseDown" Grid.Column="4" Grid.Row="1">
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <Image x:Name="ButtonPlay" Margin="8,12,17,33" Source="play.png" Stretch="Fill" MouseDown="ButtonPlay_MouseDown" Grid.Column="2" IsEnabledChanged="ButtonPlay_IsEnabledChanged" Grid.Row="1">
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <ListBox x:Name="PlaylistListBox" HorizontalAlignment="Left" Height="232" VerticalAlignment="Top" Width="609" SelectionChanged="PlaylistListBox_SelectionChanged" Drop="PlaylistListBox_Drop" Grid.ColumnSpan="6" MouseDoubleClick="PlaylistListBox_MouseDoubleClick" Margin="9,33,0,0" Grid.Column="1"/>
+        <Button x:Name="ButtonSelectSongs" Content="select songs" HorizontalAlignment="Left" Height="38" Margin="29,27,0,0" VerticalAlignment="Top" Width="124" Click="ButtonSelectSongs_Click" Grid.Column="1" Grid.Row="1" FontFamily="Viner Hand ITC" FontSize="22" FontWeight="Bold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEF99E4"/>
+                    <GradientStop Color="#FF8126D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Slider x:Name="MediaPlayerSlider" HorizontalAlignment="Left" Margin="73,288,0,0" VerticalAlignment="Top" Width="320" Grid.ColumnSpan="5" Height="18" ValueChanged="MediaPlayerSlider_ValueChanged" Grid.Column="2"/>
+        <TextBlock x:Name="TextBlockCurrentTimeSign" HorizontalAlignment="Left" Margin="185,280,0,0" TextWrapping="Wrap" Text="--:--" VerticalAlignment="Top" Height="26" Width="56" FontSize="22" FontFamily="Extr" TextAlignment="Right" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="TextBlockSongDuration" HorizontalAlignment="Right" Margin="0,278,6,0" TextWrapping="Wrap" Text="--:--" VerticalAlignment="Top" Height="26" Width="55" FontSize="22" FontFamily="Extr" Grid.Column="6" TextAlignment="Right"/>
+        <Button x:Name="Again1" Grid.Column="7" Grid.Row="1" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" Click="Again1_Click" ClickMode="Press" Margin="2,10,2,18" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.154"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Image x:Name="Again" Source="https://www.pngmart.com/files/Again-PNG-Isolated-File.png" Height="48" Width="44"/>
+        </Button>
+    </Grid>
+</Window>
