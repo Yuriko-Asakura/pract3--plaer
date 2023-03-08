@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="Player" Height="450" Width="800" Closed="Window_Closed">
+        Title="Player" Height="450" Width="800">
     <Grid x:Name="grid">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -15,8 +15,9 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="323*"/>
-            <RowDefinition Height="96*"/>
+            <RowDefinition Height="349*"/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="28*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="76*"/>
@@ -29,9 +30,9 @@
             <ColumnDefinition Width="60*"/>
             <ColumnDefinition Width="17*"/>
         </Grid.ColumnDefinitions>
-        <Image x:Name="ButtonPrevious" Margin="16,15,12,31" Source="/previous.png" Stretch="Fill" MouseDown="ButtonPrevious_MouseDown" Grid.Column="3" RenderTransformOrigin="2.418,0.684" Grid.Row="1"/>
-        <Image x:Name="ButtonNext" Margin="8,15,16,31" Source="/next.png" Stretch="Fill" MouseDown="ButtonNext_MouseDown" Grid.Column="5" Grid.Row="1"/>
-        <Image x:Name="ButtonPause" Margin="10,10,14,35" Source="/pause.png" Stretch="Fill" MouseDown="ButtonPause_MouseDown" Grid.Column="4" Grid.Row="1">
+        <Image x:Name="ButtonPrevious" Margin="20,4,5,9" Source="/previous.png" Stretch="Fill" MouseDown="ButtonPrevious_MouseDown" Grid.Column="2" RenderTransformOrigin="2.418,0.684" Grid.Row="1"/>
+        <Image x:Name="ButtonNext" Margin="7,7,19,7" Source="/next.png" Stretch="Fill" MouseDown="ButtonNext_MouseDown" Grid.Column="5" Grid.Row="1"/>
+        <Image x:Name="ButtonPause" Margin="10,4,14,7" Source="/pause.png" Stretch="Fill" MouseDown="ButtonPause_MouseDown" Grid.Column="3" Grid.Row="1">
             <Image.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -39,7 +40,7 @@
                 </LinearGradientBrush>
             </Image.OpacityMask>
         </Image>
-        <Image x:Name="ButtonPlay" Margin="8,12,17,33" Source="play.png" Stretch="Fill" MouseDown="ButtonPlay_MouseDown" Grid.Column="2" IsEnabledChanged="ButtonPlay_IsEnabledChanged" Grid.Row="1">
+        <Image x:Name="ButtonPlay" Margin="13,4,11,5" Source="play.png" Stretch="Fill" MouseDown="ButtonPlay_MouseDown" Grid.Column="4" IsEnabledChanged="ButtonPlay_IsEnabledChanged" Grid.Row="1">
             <Image.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -48,7 +49,7 @@
             </Image.OpacityMask>
         </Image>
         <ListBox x:Name="PlaylistListBox" HorizontalAlignment="Left" Height="232" VerticalAlignment="Top" Width="609" SelectionChanged="PlaylistListBox_SelectionChanged" Drop="PlaylistListBox_Drop" Grid.ColumnSpan="6" MouseDoubleClick="PlaylistListBox_MouseDoubleClick" Margin="9,33,0,0" Grid.Column="1"/>
-        <Button x:Name="ButtonSelectSongs" Content="select songs" HorizontalAlignment="Left" Height="38" Margin="29,27,0,0" VerticalAlignment="Top" Width="124" Click="ButtonSelectSongs_Click" Grid.Column="1" Grid.Row="1" FontFamily="Viner Hand ITC" FontSize="22" FontWeight="Bold">
+        <Button x:Name="ButtonSelectSongs" Content="select songs" HorizontalAlignment="Left" Height="38" Margin="30,0,0,0" VerticalAlignment="Center" Width="124" Click="ButtonSelectSongs_Click" Grid.Column="1" FontFamily="Viner Hand ITC" FontSize="22" FontWeight="Bold" Grid.Row="1">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFEF99E4"/>
@@ -56,10 +57,10 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Slider x:Name="MediaPlayerSlider" HorizontalAlignment="Left" Margin="73,288,0,0" VerticalAlignment="Top" Width="320" Grid.ColumnSpan="5" Height="18" ValueChanged="MediaPlayerSlider_ValueChanged" Grid.Column="2"/>
-        <TextBlock x:Name="TextBlockCurrentTimeSign" HorizontalAlignment="Left" Margin="185,280,0,0" TextWrapping="Wrap" Text="--:--" VerticalAlignment="Top" Height="26" Width="56" FontSize="22" FontFamily="Extr" TextAlignment="Right" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="TextBlockSongDuration" HorizontalAlignment="Right" Margin="0,278,6,0" TextWrapping="Wrap" Text="--:--" VerticalAlignment="Top" Height="26" Width="55" FontSize="22" FontFamily="Extr" Grid.Column="6" TextAlignment="Right"/>
-        <Button x:Name="Again1" Grid.Column="7" Grid.Row="1" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" Click="Again1_Click" ClickMode="Press" Margin="2,10,2,18" RenderTransformOrigin="0.5,0.5">
+        <Slider x:Name="MediaPlayerSlider" HorizontalAlignment="Left" Margin="14,292,0,0" VerticalAlignment="Top" Width="320" Grid.ColumnSpan="4" Height="18" ValueChanged="MediaPlayerSlider_ValueChanged" Grid.Column="3"/>
+        <TextBlock x:Name="TextBlockCurrentTimeSign" HorizontalAlignment="Left" Margin="13,287,0,0" TextWrapping="Wrap" Text="--:--" VerticalAlignment="Top" Height="26" Width="56" FontSize="22" FontFamily="Extr" TextAlignment="Right" Grid.Column="2"/>
+        <TextBlock x:Name="TextBlockSongDuration" HorizontalAlignment="Right" Margin="0,285,14,0" TextWrapping="Wrap" Text="--:--" VerticalAlignment="Top" Height="26" Width="55" FontSize="22" FontFamily="Extr" Grid.Column="6" TextAlignment="Right" Grid.ColumnSpan="2"/>
+        <Button x:Name="Again1" Grid.Column="6" Background="#00000000" BorderBrush="#00000000" Foreground="#00000000" Click="Again1_Click" ClickMode="Press" Margin="26,9,24,15" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -68,7 +69,7 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
-            <Image x:Name="Again" Source="https://www.pngmart.com/files/Again-PNG-Isolated-File.png" Height="48" Width="44"/>
+            <Image x:Name="Again" Source="https://www.pngmart.com/files/Again-PNG-Isolated-File.png" Height="38" Width="46" RenderTransformOrigin="0.024,-1.169"/>
         </Button>
     </Grid>
 </Window>
