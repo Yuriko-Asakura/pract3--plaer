@@ -32,6 +32,7 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
+            mediaPlayer.MediaEnded += MediaPlayer_MediaEnded;
             try
             {
             }
@@ -40,6 +41,17 @@ namespace WpfApp2
                 MessageBox.Show($"The music visualiser file was not found: '{e}'");
             }
             mediaPlayer.Play();
+        }
+        private void MediaPlayer_MediaEnded(object sender, EventArgs e)
+        {
+            if (ag)
+            {
+                mediaPlayer.Position = new TimeSpan(0);
+            }
+            else
+            {
+                playNextTrack();
+            }
         }
         private void ButtonSelectSongs_Click(object sender, RoutedEventArgs e)
         {
